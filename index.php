@@ -16,7 +16,6 @@
 
             var xhttp = new XMLHttpRequest();
 
-
             xhttp.onreadystatechange = function() {
 
                 // var statusText = "init";
@@ -35,22 +34,33 @@
                 // // console.log(this.status);
 
                 if (this.readyState == 4) {
-                    // if (this.status == 200) {
-                    //     document.getElementById("status").innerHTML = 'Done';
-                    // } else {
+                    if (this.status == 200) {
+                        document.getElementById("status").innerHTML = this.responseText;
+                    }
+
+                    // else {
                     //     document.getElementById("status").innerHTML = 'Something wrong';
                     // }
 
-                    console.log('Request Finished')
+                    // let headers = this.getResponseHeader('content-type');
+
+                    let response = this.responseText;
+
+                    console.log(response)
                 }
             };
 
 
-            xhttp.open("GET", "https://api.sampleapis.com/wines/reds", true);
+            xhttp.open("GET", "src/sample.php", true);
+
+            // xhttp.setRequestHeader('test-header', 'hello');
+            // xhttp.setRequestHeader('test-header-a', 'hello1');
 
             console.log('before send')
 
             xhttp.send();
+
+            // xhttp.abort();
 
             console.log('After send')
 
