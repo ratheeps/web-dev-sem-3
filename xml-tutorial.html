@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>CDs Collections</h1>
+
+    <button type="button" onclick="loadCds()">Get my CD collection</button>
+
+    <br /><br />
+
+    <table border="1" id="cd-collection-table"></table>
+
+    <script>
+      function loadCds() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            displayCDCollections(this.responseXML);
+          }
+        };
+        xhttp.open("GET", "data/cd_catalog.xml", true);
+        xhttp.send();
+      }
+
+      function displayCDCollections(xml) {
+        let cds = xml.getElementsByTagName("CD");
+
+        let cdTable = "<tr> <th>Title</th> <th>Artist</th> </tr>";
+
+        // let cds = ["Node 1", "Node 2", "Node 3", "Node 4"];
+
+        // for (i = 0; i < cds.length; i++) {
+        //   console.log(i);
+        //   console.log(cds[3]);
+        // }
+
+        for (i = 0; i < cds.length; i++) {
+          let cd = cds[i];
+          let title =
+            cd.getElementsByTagName("TITLE")[0].childNodes[0].nodeValue;
+          let artist =
+            cd.getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue;
+          cdTable +=
+            "<tr> <td>" + title + "</td> <td>" + artist + "</td> </tr>";
+        }
+
+        document.getElementById("cd-collection-table").innerHTML = cdTable;
+
+        // let titleNode = cds[0]
+        //   .getElementsByTagName("TITLE")[0]
+        //   .getAttribute("lang");
+
+        // console.log(titleNode);
+      }
+    </script>
+  </body>
+</html>

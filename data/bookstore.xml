@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BOOKSTORE>
+    <BOOKS category="story">
+        <TITLE lang='eng'>Everyday Italian</TITLE>
+        <AUTHOR>asdasd</AUTHOR>
+        <YEAR>2014</YEAR>
+        <PRICE>30</PRICE>
+    </BOOKS>
+    <BOOKS category="story">
+        <TITLE lang='eng'>Everyday Italian 2</TITLE>
+        <AUTHOR>sample</AUTHOR>
+        <YEAR>2023</YEAR>
+        <PRICE>25</PRICE>
+    </BOOKS>
+</BOOKSTORE>
