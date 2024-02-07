@@ -1,0 +1,32 @@
+<html>
+  <head></head>
+  <body>
+    <script>
+      let student = {
+        name: "Raja",
+        age: 20,
+        gender: "Male",
+        schools: [
+          {
+            name: "School 1",
+            city: "Jaffna",
+          },
+          {
+            name: "School 2",
+            city: "Jaffna",
+          },
+        ],
+      };
+
+      let jsonString = JSON.stringify(student);
+
+      console.log("type: ", typeof jsonString);
+      console.log("jsonString :", jsonString);
+
+      let jsonObject = JSON.parse(jsonString);
+
+      console.log("type: ", typeof jsonObject);
+      console.log("jsonObject :", jsonObject);
+    </script>
+  </body>
+</html>

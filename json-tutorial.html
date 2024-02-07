@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>CDs Collections</h1>
+
+    <button type="button" onclick="loadCds()">Get my CD collection</button>
+
+    <br /><br />
+
+    <p id="message" style="color: red"></p>
+
+    <table border="1" id="cd-collection-table"></table>
+
+    <script>
+      function loadCds() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4) {
+            if (this.status == 200) {
+              let jsonResponse = JSON.parse(this.responseText);
+              displayCDCollections(jsonResponse);
+            } else if (this.status == 401) {
+              document.getElementById("message").innerHTML =
+                "Unauthorized Access";
+            }
+          }
+        };
+
+        xhttp.open("GET", "api/cd-collection.php?id=1", true);
+        // xhttp.open("GET", "data/cd-catalog.json", true);
+        xhttp.send();
+      }
+
+      function displayCDCollections(responseJson) {
+        let cdTable = "<tr> <th>Title</th> <th>Artist</th> </tr>";
+
+        for (let key in responseJson) {
+          let cdData = responseJson[key];
+
+          cdTable +=
+            "<tr> <td>" +
+            cdData.title +
+            "</td> <td>" +
+            cdData.artist +
+            "</td> </tr>";
+        }
+
+        document.getElementById("cd-collection-table").innerHTML = cdTable;
+      }
+    </script>
+  </body>
+</html>
