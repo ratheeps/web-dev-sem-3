@@ -40,30 +40,31 @@
 // }
 
 var marks = [50, 45, 78, 45, 85];
+
 // for (let i = 0; i < marks.length; i++) {
 //   console.log(marks[i]);
 // }
 
-var users = [
-  {
-    name: "Raja",
-    age: 20,
-    city: "Jaffna",
-  },
-  {
-    name: "Vimal",
-    age: 45,
-    city: "Mannar",
-  },
-];
+// var users = [
+//   {
+//     name: "Raja",
+//     age: 20,
+//     city: "Jaffna",
+//   },
+//   {
+//     name: "Vimal",
+//     age: 45,
+//     city: "Mannar",
+//   },
+// ];
 
 // for (i in users) {
 //   let user = users[i];
 //   console.log(user["name"]);
 // }
 
-for (user of users) {
-  console.log(user.name);
-}
+// for (user of users) {
+//   console.log(user.name);
+// }
 
 // console.log(marks.length);
